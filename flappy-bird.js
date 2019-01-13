@@ -2,11 +2,11 @@
 var birdX = 200;
 var birdY = 200;
 
-var birdVelX = 0;
+//var birdVelX = 0;
 var birdVelY = 0;
 
-var birdAccX = 0;
-var birdAccY = 0;
+//var birdAccX = 0;
+var birdAccY = 1;
 
 var birdRadius = 13;
 
@@ -32,6 +32,9 @@ function drawEverything(){
 	}
 
 function moveEverything(){
+	//	Moving the bird
+	birdY += birdVelY;
+	birdVelY += birdAccY;
 
 	}
 
@@ -50,7 +53,7 @@ function colorRect(leftX, topY, width, height, drawColor){
 function keyPush(evt){
 	switch(evt.keyCode){
 		case 38:  //up
-
+			birdVelY = -12;
 			break;
 		}
 	}
