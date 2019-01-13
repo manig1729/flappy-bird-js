@@ -35,7 +35,14 @@ function moveEverything(){
 	//	Moving the bird
 	birdY += birdVelY;
 	birdVelY += birdAccY;
+	checkCollision();
+	}
 
+function checkCollision(){
+	//	Bird with bottom
+	if(birdY + birdRadius >= canvas.height){
+		birdVelY = -birdVelY;
+	}
 	}
 
 function colorCircle(centerX, centerY, radius, color) {
