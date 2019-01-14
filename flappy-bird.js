@@ -62,5 +62,8 @@ function keyPush(evt){
 		case 38:  //up
 			birdVelY = -12;
 			break;
+		case 32:  //space
+			birdVelY = -12;
+			break;
 		}
 	}
