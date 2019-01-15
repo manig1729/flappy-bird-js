@@ -4,7 +4,9 @@
 	var birdVelY = 0;
 	var birdAccY = 1;
 	var birdRadius = 13;
-	var birdColor = 'lime'
+	var birdColor = 'lime';
+	var height = 600;
+	var width = 400;
 
 
 window.onload = function(){
@@ -27,18 +29,24 @@ class Bird {
 		this.y = y;
 		this.r = r;
 		this.colour = colour;
-		this.velY = birdVelY; 
+		this.velY = birdVelY;
 		this.accY = birdAccY
 	}
 
 	draw(){
 		//	Drawing player (bird) sprite
-		colorCircle(this.x, this.y, this.r, this.colour);	
+		colorCircle(this.x, this.y, this.r, this.colour);
 	}
 
 	move(){
 		this.y += this.velY;
 		this.velY += this.accY;
+	}
+
+	//Sets bird velocity to 0 and bird position to bottom of screen
+	kill(){
+		this.velY = 0;
+		this.y = height - this.r;
 	}
 }
 
@@ -57,11 +65,12 @@ function moveEverything(){
 	checkCollision();
 }
 
-
+//Checks if bird has hit the bottom of the screen
 function checkCollision(){
 	//	Bird with bottom
 	if(bird.y + bird.r >= canvas.height){
-		bird.velY = -bird.velY;
+		//bird.velY = 0;
+		bird.kill();
 	}
 }
 
@@ -76,6 +85,7 @@ function colorRect(leftX, topY, width, height, drawColor){
 	canvasContext.fillStyle = drawColor;
 	canvasContext.fillRect(leftX, topY, width, height);
 	}
+
 
 function keyPush(evt){
 	switch(evt.keyCode){
