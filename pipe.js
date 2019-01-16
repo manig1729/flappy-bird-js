@@ -1,4 +1,5 @@
-var pipeX = 300;
+
+var pipeX = 600;
 var pipeY = 400;
 
 var pipeVelX = 5;
@@ -10,10 +11,10 @@ var pipeColor = 'lightblue';
 
 class Pipe {
 	constructor(x, y, width, height) {
-		this.x = pipeX;
-		this.y = pipeY;
-		this.width = pipeWidth;
-		this.height = pipeHeight;
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height;
 		this.colour = pipeColor;
 		this.velX = pipeVelX;
 	}

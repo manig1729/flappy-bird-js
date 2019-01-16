@@ -2,23 +2,28 @@
 	var height = 600;
 	var width = 400;
 
+	var counter = 0;
+
 window.onload = function(){
 	canvas = document.getElementById('gameCanvas');
 	canvasContext = canvas.getContext('2d');
 	document.addEventListener('keydown', keyPush);
 
 	setup();
+	setupPipe();
 
 	framesPerSecond = 30;
 	setInterval(function(){
+
+		if(counter%150==0){            //Get a new pipe every 5 seconds. Stupid code, but had to do it
+			setupPipe();
+			console.log("Pipe made");
+		}
 		drawEverything();
 		moveEverything();
+
+		counter ++;
 	},1000/framesPerSecond);
-
-	setInterval(function(){
-		setupPipe();
-	},1000/0.4);
-
 }
 
 function setup() {
@@ -26,7 +31,9 @@ function setup() {
 }
 
 function setupPipe() {
-	pipe = new Pipe(pipeX, pipeY, pipeWidth, pipeHeight);
+	pipeYTemp = 100 + Math.floor(Math.random()*100);
+	pipe = new Pipe(pipeX, 600-pipeYTemp, pipeWidth, pipeYTemp);
+	console.log(pipeYTemp);
 }
 
 function drawEverything(){
