@@ -14,20 +14,31 @@ window.onload = function(){
 		drawEverything();
 		moveEverything();
 	},1000/framesPerSecond);
+
+	setInterval(function(){
+		setupPipe();
+	},1000/0.4);
+
 }
 
 function setup() {
 	bird = new Bird(birdX, birdY, birdRadius, birdColor);
 }
 
+function setupPipe() {
+	pipe = new Pipe(pipeX, pipeY, pipeWidth, pipeHeight);
+}
+
 function drawEverything(){
 	//	Drawing the background of canvas
 	colorRect(0, 0, canvas.width, canvas.height, 'black');
 	bird.draw();
+	pipe.draw();
 }
 
 function moveEverything(){
 	bird.move();
+	pipe.move();
 	checkCollision();
 }
 
