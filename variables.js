@@ -9,6 +9,7 @@ var pipeY = 400;
 var pipeVelX = 5;
 var pipeWidth = 50;
 var pipeHeight = 400;
+var gapWidth = 200;
 
 var pipeColor = 'lightblue';
 

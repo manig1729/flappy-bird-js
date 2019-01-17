@@ -10,7 +10,7 @@ window.onload = function(){
 	framesPerSecond = 30;
 	setInterval(function(){
 
-		if(counter%150==0){            //Get a new pipe every 5 seconds. Stupid code, but had to do it
+		if(counter % 150 == 0){            //Get a new pipe every 5 seconds. Stupid code, but had to do it
 			setupPipe();
 			console.log("Pipe made");
 		}

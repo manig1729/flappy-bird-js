@@ -11,6 +11,7 @@ class Pipe {
 
 	draw() {
 		colorRect(this.x, this.y, this.width, this.height, this.colour);
+		colorRect(this.x, 0, this.width, this.y - gapWidth, this.colour);
 	}
 
 	move() {
