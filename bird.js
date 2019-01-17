@@ -1,11 +1,4 @@
 
-var birdX = 200;
-var birdY = 200;
-var birdVelY = 0;
-var birdAccY = 1;
-var birdRadius = 13;
-var birdColor = 'lime';
-
 class Bird {
 	constructor(x, y, r, colour){
 		this.x = x;

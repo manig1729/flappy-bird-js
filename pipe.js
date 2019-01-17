@@ -1,14 +1,4 @@
 
-var pipeX = 600;
-var pipeY = 400;
-
-var pipeVelX = 5;
-
-var pipeWidth = 50;
-var pipeHeight = 400;
-
-var pipeColor = 'lightblue';
-
 class Pipe {
 	constructor(x, y, width, height) {
 		this.x = x;
