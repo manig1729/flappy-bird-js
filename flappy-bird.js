@@ -8,16 +8,19 @@ window.onload = function(){
 	setupPipe();
 
 	framesPerSecond = 30;
-	setInterval(function(){
 
+
+	setInterval(function(){
+		if(isPlaying){
 		if(counter % 150 == 0){            //Get a new pipe every 5 seconds. Stupid code, but had to do it
 			setupPipe();
-			console.log("Pipe made");
+			//console.log("Pipe made");
 		}
 		drawEverything();
 		moveEverything();
 
 		counter ++;
+	}
 	},1000/framesPerSecond);
 }
 
@@ -28,7 +31,7 @@ function setup() {
 function setupPipe() {
 	pipeYTemp = 100 + Math.floor(Math.random()*100);
 	pipe = new Pipe(pipeX, 600-pipeYTemp, pipeWidth, pipeYTemp);
-	console.log(pipeYTemp);
+	//console.log(pipeYTemp);
 }
 
 function drawEverything(){
@@ -50,6 +53,9 @@ function checkCollision(){
 	if(bird.y + bird.r >= canvas.height){
 		//bird.velY = 0;
 		bird.kill();
+		
+		//test
+		bird.pause();
 	}
 }
 
@@ -74,5 +80,12 @@ function keyPush(evt){
 		case 32:  //space
 			bird.velY = -12;
 			break;
+		case 27:	  //escape
+			if(isPlaying == true){
+				isPlaying = false;
+			}
+			else if (isPlaying == false){
+				isPlaying = true;
+			}
 		}
 	}

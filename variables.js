@@ -2,6 +2,7 @@
 var height = 600;
 var width = 400;
 var counter = 0;
+var isPlaying = true;
 
 //Pipe
 var pipeX = 600;
