@@ -23,11 +23,5 @@ class Bird {
 	kill(){
 		this.velY = 0;
 		this.y = height - this.r;
-		//isPlaying = false;	//TODO - CHECK THIS
-	}
-
-	//test function not required
-	pause(){
-		isPlaying = false;
 	}
 }

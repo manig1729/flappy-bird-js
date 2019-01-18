@@ -5,6 +5,7 @@ var counter = 0;
 var isPlaying = true;
 
 //Pipe
+var pipes = [];
 var pipeX = 600;
 var pipeY = 400;
 var pipeVelX = 5;

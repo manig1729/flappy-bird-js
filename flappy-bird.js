@@ -5,16 +5,20 @@ window.onload = function(){
 	document.addEventListener('keydown', keyPush);
 
 	setup();
-	setupPipe();
+	setupPipe0();
+	setupPipe1();
 
 	framesPerSecond = 30;
 
 
 	setInterval(function(){
 		if(isPlaying){
-		if(counter % 150 == 0){            //Get a new pipe every 5 seconds. Stupid code, but had to do it
-			setupPipe();
+		if(counter % 120 == 0){            //Get a new pipe every 5 seconds. Stupid code, but had to do it
+			setupPipe0();
 			//console.log("Pipe made");
+		}
+		if(counter % 120 != 0 && counter % 60 == 0){
+			setupPipe1();
 		}
 		drawEverything();
 		moveEverything();
@@ -28,22 +32,29 @@ function setup() {
 	bird = new Bird(birdX, birdY, birdRadius, birdColor);
 }
 
-function setupPipe() {
+function setupPipe0() {
 	pipeYTemp = 100 + Math.floor(Math.random()*100);
-	pipe = new Pipe(pipeX, 600-pipeYTemp, pipeWidth, pipeYTemp);
+	pipes[0] = new Pipe(pipeX, 600-pipeYTemp, pipeWidth, pipeYTemp);
 	//console.log(pipeYTemp);
+}
+
+function setupPipe1() {
+	pipeYTemp = 100 + Math.floor(Math.random()*100);
+	pipes[1] = new Pipe(pipeX, 600-pipeYTemp, pipeWidth, pipeYTemp);
 }
 
 function drawEverything(){
 	//	Drawing the background of canvas
 	colorRect(0, 0, canvas.width, canvas.height, 'black');
 	bird.draw();
-	pipe.draw();
+	pipes[0].draw();
+	pipes[1].draw();
 }
 
 function moveEverything(){
 	bird.move();
-	pipe.move();
+	pipes[0].move();
+	pipes[1].move();
 	checkCollision();
 }
 
@@ -53,9 +64,6 @@ function checkCollision(){
 	if(bird.y + bird.r >= canvas.height){
 		//bird.velY = 0;
 		bird.kill();
-		
-		//test
-		bird.pause();
 	}
 }
 
