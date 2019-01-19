@@ -8,16 +8,14 @@ window.onload = function(){
 	setupPipe0();
 	setupPipe1();
 
-	framesPerSecond = 30;
-
-
+	framesPerSecond = 30;	
 	setInterval(function(){
 		if(isPlaying){
-		if(counter % 120 == 0){            //Get a new pipe every 5 seconds. Stupid code, but had to do it
+		if(counter % 130 == 0){       //Get a new pipe every 4 seconds. Stupid code, but had to do it
 			setupPipe0();
 			//console.log("Pipe made");
 		}
-		if(counter % 120 != 0 && counter % 60 == 0){
+		if(counter % 130 != 0 && counter % 65 == 0){
 			setupPipe1();
 		}
 		drawEverything();
@@ -65,6 +63,11 @@ function checkCollision(){
 		//bird.velY = 0;
 		bird.kill();
 	}
+
+	//Bird with pipe
+	for(i=0; i<2; i++){
+		pipes[i].notInGap();
+	}
 }
 
 function colorCircle(centerX, centerY, radius, color) {
@@ -78,7 +81,6 @@ function colorRect(leftX, topY, width, height, drawColor){
 	canvasContext.fillStyle = drawColor;
 	canvasContext.fillRect(leftX, topY, width, height);
 	}
-
 
 function keyPush(evt){
 	switch(evt.keyCode){
