@@ -3,6 +3,7 @@ var height = 600;
 var width = 400;
 var counter = 0;
 var isPlaying = true;
+var score = 0;
 
 //Pipe
 var pipes = [];
@@ -11,7 +12,7 @@ var pipeY = 400;
 var pipeVelX = 5;
 var pipeWidth = 50;
 var pipeHeight = 400;
-var gapWidth = 200;
+var gapWidth = 150;
 
 var pipeColor = 'lightblue';
 

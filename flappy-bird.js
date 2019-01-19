@@ -8,16 +8,14 @@ window.onload = function(){
 	setupPipe0();
 	setupPipe1();
 
-	framesPerSecond = 30;
-
-
+	framesPerSecond = 30;	
 	setInterval(function(){
 		if(isPlaying){
-		if(counter % 120 == 0){            //Get a new pipe every 5 seconds. Stupid code, but had to do it
+		if(counter % 130 == 0){       //Get a new pipe every 4 seconds. Stupid code, but had to do it
 			setupPipe0();
 			//console.log("Pipe made");
 		}
-		if(counter % 120 != 0 && counter % 60 == 0){
+		if(counter % 130 != 0 && counter % 65 == 0){
 			setupPipe1();
 		}
 		drawEverything();
@@ -26,6 +24,17 @@ window.onload = function(){
 		counter ++;
 	}
 	},1000/framesPerSecond);
+}
+
+function showEndScreen() {
+	colorRect(0, 0, canvas.width, canvas.height, 'black');
+	canvasContext.fillStyle = "white";
+	canvasContext.font = "90 px Verdana";  // Why does this not do anything?
+	canvasContext.fillText("Score : "+score, 50, 50)
+
+	canvasContext.font = "80 px Arial";
+	canvasContext.fillText("GAME OVER", 180, canvas.height/2)
+
 }
 
 function setup() {
@@ -49,6 +58,9 @@ function drawEverything(){
 	bird.draw();
 	pipes[0].draw();
 	pipes[1].draw();
+	canvasContext.fillStyle = "white";
+	canvasContext.font = "90 px Verdana";  // Why does this not do anything?
+	canvasContext.fillText("Score : "+score, 50, 50)
 }
 
 function moveEverything(){
@@ -65,6 +77,11 @@ function checkCollision(){
 		//bird.velY = 0;
 		bird.kill();
 	}
+
+	//Bird with pipe
+	for(i=0; i<2; i++){
+		pipes[i].notInGap();
+	}
 }
 
 function colorCircle(centerX, centerY, radius, color) {
@@ -78,7 +95,6 @@ function colorRect(leftX, topY, width, height, drawColor){
 	canvasContext.fillStyle = drawColor;
 	canvasContext.fillRect(leftX, topY, width, height);
 	}
-
 
 function keyPush(evt){
 	switch(evt.keyCode){
