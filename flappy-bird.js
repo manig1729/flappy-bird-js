@@ -28,6 +28,13 @@ window.onload = function(){
 
 function showEndScreen() {
 	colorRect(0, 0, canvas.width, canvas.height, 'black');
+	canvasContext.fillStyle = "white";
+	canvasContext.font = "90 px Verdana";  // Why does this not do anything?
+	canvasContext.fillText("Score : "+score, 50, 50)
+
+	canvasContext.font = "80 px Arial";
+	canvasContext.fillText("GAME OVER", 180, canvas.height/2)
+
 }
 
 function setup() {
@@ -51,7 +58,9 @@ function drawEverything(){
 	bird.draw();
 	pipes[0].draw();
 	pipes[1].draw();
-	console.log(score);
+	canvasContext.fillStyle = "white";
+	canvasContext.font = "90 px Verdana";  // Why does this not do anything?
+	canvasContext.fillText("Score : "+score, 50, 50)
 }
 
 function moveEverything(){
