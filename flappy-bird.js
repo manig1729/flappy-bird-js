@@ -42,13 +42,13 @@ function setup() {
 }
 
 function setupPipe0() {
-	pipeYTemp = 100 + Math.floor(Math.random()*100);
+	pipeYTemp = 100 + Math.floor(Math.random()*150);
 	pipes[0] = new Pipe(pipeX, 600-pipeYTemp, pipeWidth, pipeYTemp);
 	//console.log(pipeYTemp);
 }
 
 function setupPipe1() {
-	pipeYTemp = 100 + Math.floor(Math.random()*100);
+	pipeYTemp = 100 + Math.floor(Math.random()*150);
 	pipes[1] = new Pipe(pipeX, 600-pipeYTemp, pipeWidth, pipeYTemp);
 }
 
