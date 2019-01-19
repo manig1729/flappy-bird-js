@@ -26,6 +26,10 @@ window.onload = function(){
 	},1000/framesPerSecond);
 }
 
+function showEndScreen() {
+	colorRect(0, 0, canvas.width, canvas.height, 'black');
+}
+
 function setup() {
 	bird = new Bird(birdX, birdY, birdRadius, birdColor);
 }
@@ -47,6 +51,7 @@ function drawEverything(){
 	bird.draw();
 	pipes[0].draw();
 	pipes[1].draw();
+	console.log(score);
 }
 
 function moveEverything(){

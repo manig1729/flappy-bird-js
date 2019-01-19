@@ -23,5 +23,6 @@ class Bird {
 	kill(){
 		this.velY = 0;
 		this.y = height - this.r;
+		showEndScreen();
 	}
 }

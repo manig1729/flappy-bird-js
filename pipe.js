@@ -19,8 +19,13 @@ class Pipe {
 			if((bird.y + bird.r) <= (this.y - gapWidth) || (bird.y - bird.r) >= (canvas.height - this.height)){
 				//console.log("Not in gap");
 				isPlaying = false;
+				showEndScreen();
 			}
 		}
+		if(this.x == 150 && isPlaying){
+			score ++;
+		}
+
 	}
 
 	move() {

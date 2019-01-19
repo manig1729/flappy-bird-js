@@ -3,6 +3,7 @@ var height = 600;
 var width = 400;
 var counter = 0;
 var isPlaying = true;
+var score = 0;
 
 //Pipe
 var pipes = [];
