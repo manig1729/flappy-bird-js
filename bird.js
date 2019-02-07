@@ -1,6 +1,6 @@
 
 class Bird {
-	constructor(x, y, r, colour){
+	constructor(x, y, r, colour) {
 		this.x = x;
 		this.y = y;
 		this.r = r;
@@ -9,18 +9,18 @@ class Bird {
 		this.accY = birdAccY
 	}
 
-	draw(){
+	draw() {
 		//	Drawing player (bird) sprite
 		colorCircle(this.x, this.y, this.r, this.colour);
 	}
 
-	move(){
+	move() {
 		this.y += this.velY;
 		this.velY += this.accY;
 	}
 
 	//Sets bird velocity to 0 and bird position to bottom of screen
-	kill(){
+	kill() {
 		this.velY = 0;
 		this.y = height - this.r;
 		showEndScreen();
