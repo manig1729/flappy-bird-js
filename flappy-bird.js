@@ -1,4 +1,4 @@
-
+let sprite = document.getElementById("sprite");
 window.onload = function () {
 	canvas = document.getElementById('gameCanvas');
 	canvasContext = canvas.getContext('2d');
@@ -85,10 +85,15 @@ function checkCollision() {
 }
 
 function colorCircle(centerX, centerY, radius, color) {
-	canvasContext.fillStyle = color;
-	canvasContext.beginPath();
-	canvasContext.arc(centerX, centerY, radius, 0, Math.PI * 2, true);
-	canvasContext.fill();
+	//Option 1 - Sprite
+	canvasContext.drawImage(sprite, centerX, centerY);
+	
+	//Option2 - Colored Circle
+
+	// canvasContext.fillStyle = color;
+	// canvasContext.beginPath();
+	// canvasContext.arc(centerX, centerY, radius, 0, Math.PI * 2, true);
+	// canvasContext.fill();
 }
 
 function colorRect(leftX, topY, width, height, drawColor) {

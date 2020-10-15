@@ -11,6 +11,7 @@ class Bird {
 
 	draw() {
 		//	Drawing player (bird) sprite
+		
 		colorCircle(this.x, this.y, this.r, this.colour);
 	}
 
